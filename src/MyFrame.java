@@ -10,13 +10,15 @@ public class MyFrame extends JFrame{
 
     JPanel panel;
     JLabel label1, label2;
-    JPanel inputDataPanel;
 
     private MyActionListener myActionListener;
     private Border grayLineBorder;
     private ArrayList<JScrollPane> inputScrollPaneList;
+    private JPanel filePanel, textPanel, dataPanel;
 
     private ArrayList<JTextArea> inputDataTextAreaList;
+
+    private JButton button;
 
     MyFrame() {
         super("Szyfrowanie");
@@ -33,7 +35,6 @@ public class MyFrame extends JFrame{
         add(panel);
 
         GridBagConstraints c = new GridBagConstraints();
-        c.fill = GridBagConstraints.HORIZONTAL;
         c.gridy = 0;
         panel.add(label1,c);
 
@@ -41,15 +42,35 @@ public class MyFrame extends JFrame{
         panel.add(label2,c);
 
 
-        for(int i = 0; i< 6; i++){
+        /*for(int i = 0; i< 6; i++){
             c.gridx = i%2;
             c.gridy = (i%3)+1;
             panel.add(inputScrollPaneList.get(i),c);
-        }
+        }*/
         /*inputDataPanel.add(inputScrollPaneList.get(0),c);
         inputDataPanel.setBorder(BorderFactory.createTitledBorder(grayLineBorder,"Dane wejściowe"));*/
 
-        panel.add(inputDataPanel,c);
+        filePanel.add(inputScrollPaneList.get(0));
+        filePanel.add(inputScrollPaneList.get(1));
+        filePanel.setBorder(BorderFactory.createTitledBorder(grayLineBorder,"ścieżka do pliku"));
+        textPanel.add(inputScrollPaneList.get(2));
+        textPanel.add(inputScrollPaneList.get(3));
+        textPanel.setBorder(BorderFactory.createTitledBorder(grayLineBorder,"Tekst"));
+        dataPanel.add(inputScrollPaneList.get(4));
+        dataPanel.add(inputScrollPaneList.get(5));
+        dataPanel.setBorder(BorderFactory.createTitledBorder(grayLineBorder,"Dane z bazy"));
+
+        c.gridwidth = 2;
+        c.gridx= 0;
+        c.gridy = 1;
+        panel.add(filePanel,c);
+        c.gridy = 2;
+        panel.add(textPanel,c);
+        c.gridy = 3;
+        panel.add(dataPanel,c);
+        c.gridy = 4;
+        c.fill = GridBagConstraints.HORIZONTAL;
+        panel.add(button,c);
     }
 
     /*tworzenie komponentow*/
@@ -73,7 +94,11 @@ public class MyFrame extends JFrame{
         }
         
         grayLineBorder = BorderFactory.createLineBorder(Color.GRAY);
-        inputDataPanel = new JPanel(new GridBagLayout());
+        filePanel = new JPanel();
+        textPanel = new JPanel();
+        dataPanel = new JPanel();
+
+        button = new JButton("Wykonaj");
     }
 
     /*konfigurowanie okna aplikacji*/
@@ -88,4 +113,11 @@ public class MyFrame extends JFrame{
         setVisible(true);
     }
 
+    public JButton getButton() {
+        return button;
+    }
+
+    public ArrayList<JTextArea> getInputDataTextAreaList() {
+        return inputDataTextAreaList;
+    }
 }
