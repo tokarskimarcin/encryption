@@ -16,7 +16,7 @@ public class MyFrame extends JFrame{
     private ArrayList<JScrollPane> inputScrollPaneList;
     private JPanel filePanel, textPanel, dataPanel;
 
-    private ArrayList<JTextArea> inputDataTextAreaList;
+    private ArrayList<JTextField> inputDataTextFieldList;
 
     private JButton button;
 
@@ -83,16 +83,17 @@ public class MyFrame extends JFrame{
         label2 = new JLabel();
         label2.setText("<html><h3>DESZYFROWANIE</h3>");
 
-        inputDataTextAreaList = new ArrayList<>();
+        inputDataTextFieldList = new ArrayList<>();
         inputScrollPaneList = new ArrayList<>();
 
         for(int i = 0; i < 6; i++){
-            inputDataTextAreaList.add(i, new JTextArea(2,30));
-            inputDataTextAreaList.get(i).setLineWrap(true);
-            inputDataTextAreaList.get(i).setLineWrap(true);
-            inputScrollPaneList.add(i, new JScrollPane(inputDataTextAreaList.get(i)));
+            inputDataTextFieldList.add(i, new JTextField(""));
+            inputDataTextFieldList.get(i).setPreferredSize(new Dimension(30,2));
+            //inputDataTextFieldList.get(i).setLineWrap(true);
+            //inputDataTextFieldList.get(i).setLineWrap(true);*/
+            inputScrollPaneList.add(i, new JScrollPane(inputDataTextFieldList.get(i)));
         }
-        
+
         grayLineBorder = BorderFactory.createLineBorder(Color.GRAY);
         filePanel = new JPanel();
         textPanel = new JPanel();
@@ -117,7 +118,7 @@ public class MyFrame extends JFrame{
         return button;
     }
 
-    public ArrayList<JTextArea> getInputDataTextAreaList() {
-        return inputDataTextAreaList;
+    public ArrayList<JTextField> getInputDataTextFieldList() {
+        return inputDataTextFieldList;
     }
 }

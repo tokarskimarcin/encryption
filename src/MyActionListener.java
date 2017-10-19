@@ -17,14 +17,14 @@ public class MyActionListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource().equals(myFrame.getButton())){
-            ArrayList<JTextArea> inputDataTextAreaList = myFrame.getInputDataTextAreaList();
+            ArrayList<JTextField> inputDataTextFieldList = myFrame.getInputDataTextFieldList();
 
-            if(!inputDataTextAreaList.get(0).getText().isEmpty());
-            if(!inputDataTextAreaList.get(1).getText().isEmpty());
-            if(!inputDataTextAreaList.get(2).getText().isEmpty());
-            if(!inputDataTextAreaList.get(3).getText().isEmpty());
-            if(!inputDataTextAreaList.get(4).getText().isEmpty());
-            if(!inputDataTextAreaList.get(5).getText().isEmpty());
+            if(!inputDataTextFieldList.get(0).getText().isEmpty());
+            if(!inputDataTextFieldList.get(1).getText().isEmpty());
+            if(!inputDataTextFieldList.get(2).getText().isEmpty());
+            if(!inputDataTextFieldList.get(3).getText().isEmpty());
+            if(!inputDataTextFieldList.get(4).getText().isEmpty());
+            if(!inputDataTextFieldList.get(5).getText().isEmpty());
         }
     }
 }
