@@ -26,7 +26,6 @@ public class MyFrame extends JFrame{
         createComponents();
         addComponents();
 
-        myActionListener = new MyActionListener(this);
         frameConfiguration();
     }
 
