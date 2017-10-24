@@ -56,7 +56,7 @@ public class MyActionListener implements ActionListener {
                 CryptoUtils.decrypt(key, inputFile, outputFile);
             }
 
-            if(!app.getTextArea1().getText().isEmpty()){
+            /*if(!app.getTextArea1().getText().isEmpty()){
                 System.out.println("Crypting text");
                 String inputText = app.getTextArea1().getText();
                 app.setTextBytes(CryptoUtils.encrypt(key, inputText.getBytes()));
@@ -68,7 +68,14 @@ public class MyActionListener implements ActionListener {
                 System.out.println("Decrypting text");
                 String outputText = new String(CryptoUtils.decrypt(key, app.getTextBytes()));
                 app.getTextArea3().setText(outputText);
+            }*/
+
+            if(!app.getTextArea1().getText().isEmpty()){
+                System.out.println("Crypting text");
+                app.getTextArea3().setText(CryptoUtils.encrypt(key, app.getTextArea1().getText()));
+                app.getTextArea2().setText(CryptoUtils.decrypt(key));
             }
+
 
             if(!app.getFileTextField3().getText().isEmpty()){
                 System.out.println("Crypting binary files");
