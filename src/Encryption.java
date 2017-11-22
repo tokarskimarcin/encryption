@@ -25,11 +25,9 @@ public class Encryption {
     private JTextArea textArea3;
     private DataBaseController db;
 
-    private byte[] textBytes;
-
     public Encryption() {
         MyActionListener myActionListener = new MyActionListener(this);
-        //db = new DataBaseController();
+        db = new DataBaseController();
 
         findFileButton1.addActionListener(myActionListener);
         findFileButton2.addActionListener(myActionListener);
@@ -149,11 +147,7 @@ public class Encryption {
         this.textArea3 = textArea3;
     }
 
-    public byte[] getTextBytes() {
-        return textBytes;
-    }
-
-    public void setTextBytes(byte[] textBytes) {
-        this.textBytes = textBytes;
+    public DataBaseController getDb() {
+        return db;
     }
 }
